@@ -60,8 +60,8 @@ class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
-            let jsonData = Data("Invalid JSON".utf8)
-            client.complete(withStatusCode: 200, data: jsonData)
+            let invalidJSON = Data("Invalid JSON".utf8)
+            client.complete(withStatusCode: 200, data: invalidJSON)
         })
     }
     
@@ -69,7 +69,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expect(sut, toCompleteWithResult: .success([]), when: {
-            let emptyListJSON = Data("{ \"items\": [] }".utf8)
+            let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
         })
     }
