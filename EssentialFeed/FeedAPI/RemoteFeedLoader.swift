@@ -33,10 +33,7 @@ public final class RemoteFeedLoader {
 }
 
 public extension RemoteFeedLoader {
-    enum Result: Equatable {
-        case success([FeedItem])
-        case failure(Error)
-    }
+    typealias Result = LoadFeedResult<Error>
     
     enum Error: Swift.Error {
         case connectivity
