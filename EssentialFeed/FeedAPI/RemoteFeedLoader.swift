@@ -26,14 +26,14 @@ public final class RemoteFeedLoader: FeedLoader {
                 completion(result)
                 
             case .failure:
-                completion(.failure(.connectivity))
+                completion(.failure(RemoteFeedLoader.Error.connectivity))
             }
         }
     }
 }
 
 public extension RemoteFeedLoader {
-    typealias Result = LoadFeedResult<Error>
+    typealias Result = LoadFeedResult
     
     enum Error: Swift.Error {
         case connectivity
