@@ -58,7 +58,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     func test_getFromURL_failsOnRequestError() {
-        let requestError = NSError(domain: "Invalid request", code: 400)
+        let requestError = anyNSError()
         
         let receivedError = resultErrorOn(data: nil, response: nil, error: requestError) as NSError?
         
@@ -66,8 +66,17 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(receivedError?.code, requestError.code)
     }
     
-    func test_getFromURL_failsOnAllNilValues() {
+    func test_getFromURL_failsOnAllInvalidRepresentationCases() {
         XCTAssertNotNil(resultErrorOn(data: nil, response: nil, error: nil))
+        XCTAssertNotNil(resultErrorOn(data: nil, response: nonHTTPURLResponse(), error: nil))
+        XCTAssertNotNil(resultErrorOn(data: nil, response: anyHTTPURLResponse(), error: nil))
+        XCTAssertNotNil(resultErrorOn(data: anyData(), response: nil, error: nil))
+        XCTAssertNotNil(resultErrorOn(data: anyData(), response: nil, error: anyNSError()))
+        XCTAssertNotNil(resultErrorOn(data: nil, response: nonHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorOn(data: nil, response: anyHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorOn(data: anyData(), response: nonHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorOn(data: anyData(), response: anyHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorOn(data: anyData(), response: nonHTTPURLResponse(), error: nil))
     }
     
     // MARK: - Helpers
@@ -80,6 +89,22 @@ class URLSessionHTTPClientTests: XCTestCase {
     
     private func anyURL() -> URL {
         return URL(string: "https://any-url.com")!
+    }
+    
+    private func nonHTTPURLResponse() -> URLResponse {
+        return URLResponse(url: anyURL(), mimeType: nil, expectedContentLength: 0, textEncodingName: nil)
+    }
+    
+    private func anyHTTPURLResponse() -> HTTPURLResponse {
+        return HTTPURLResponse(url: anyURL(), statusCode: 1, httpVersion: nil, headerFields: nil)!
+    }
+    
+    private func anyData() -> Data {
+        return Data("any".utf8)
+    }
+    
+    private func anyNSError() -> NSError {
+        return NSError(domain: "Invalid request", code: 400)
     }
     
     private func resultErrorOn(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> Error? {
