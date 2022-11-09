@@ -11,6 +11,29 @@ import XCTest
 class EssentialFeedAPIEndToEndTests: XCTestCase {
     
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData() {
+        switch getFeedResult() {
+        case .success(let items)?:
+            XCTAssertEqual(items.count, 8)
+            XCTAssertEqual(items[0], item(at: 0))
+            XCTAssertEqual(items[1], item(at: 1))
+            XCTAssertEqual(items[2], item(at: 2))
+            XCTAssertEqual(items[3], item(at: 3))
+            XCTAssertEqual(items[4], item(at: 4))
+            XCTAssertEqual(items[5], item(at: 5))
+            XCTAssertEqual(items[6], item(at: 6))
+            XCTAssertEqual(items[7], item(at: 7))
+            
+        case .failure(let error)?:
+            XCTFail("Expected successful feed result, got error \(error) instead")
+            
+        case .none:
+            XCTFail("Expected successful feed, got no result instead")
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private func getFeedResult() -> LoadFeedResult? {
         let testServerURL = URL(string: "https://static1.squarespace.com/static/5891c5b8d1758ec68ef5dbc2/t/5c52cdd0b8a045df091d2fff/1548930512083/feed-case-study-test-api-feed.json")!
         let client = URLSessionHTTPClient()
         let loader = RemoteFeedLoader(url: testServerURL, client: client)
@@ -23,29 +46,9 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 5.0)
-        
-        switch receivedResult {
-        case .success(let items)?:
-            XCTAssertEqual(items.count, 8)
-            XCTAssertEqual(items[0], item(at: 0))
-            XCTAssertEqual(items[1], item(at: 1))
-            XCTAssertEqual(items[2], item(at: 2))
-            XCTAssertEqual(items[3], item(at: 3))
-            XCTAssertEqual(items[4], item(at: 4))
-            XCTAssertEqual(items[5], item(at: 5))
-            XCTAssertEqual(items[6], item(at: 6))
-            XCTAssertEqual(items[7], item(at: 7))
 
-            
-        case .failure(let error)?:
-            XCTFail("Expected successful feed result, got error \(error) instead")
-            
-        case .none:
-            XCTFail("Expected successful feed, got no result instead")
-        }
+        return receivedResult
     }
-    
-    // MARK: - Helpers
     
     private func item(at index: Int) -> FeedItem {
         return .init(id: id(at: index),
