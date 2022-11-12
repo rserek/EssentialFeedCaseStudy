@@ -41,8 +41,8 @@
             filePath = "EssentialFeedTests/FeedCache/CacheFeedUseCaseTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "test_save_failsOnInsertionError()"
             landmarkType = "7">
             <Locations>
