@@ -25,6 +25,7 @@
 		E9B77F8A291F9F4D0000B659 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B77F89291F9F4D0000B659 /* LocalFeedLoader.swift */; };
 		E9B77F8C291F9F790000B659 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B77F8B291F9F790000B659 /* FeedStore.swift */; };
 		E9B77F8E291FAB0F0000B659 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B77F8D291FAB0F0000B659 /* RemoteFeedItem.swift */; };
+		E9B77F90291FAB360000B659 /* LocalFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B77F8F291FAB360000B659 /* LocalFeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E9B77F89291F9F4D0000B659 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		E9B77F8B291F9F790000B659 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		E9B77F8D291FAB0F0000B659 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
+		E9B77F8F291FAB360000B659 /* LocalFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			children = (
 				E9B77F89291F9F4D0000B659 /* LocalFeedLoader.swift */,
 				E9B77F8B291F9F790000B659 /* FeedStore.swift */,
+				E9B77F8F291FAB360000B659 /* LocalFeedItem.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B77F90291FAB360000B659 /* LocalFeedItem.swift in Sources */,
 				E9B77F8C291F9F790000B659 /* FeedStore.swift in Sources */,
 				E96A221928F02EA900C267CF /* URLSessionHTTPClient.swift in Sources */,
 				E96A220D28EC541600C267CF /* RemoteFeedLoader.swift in Sources */,
