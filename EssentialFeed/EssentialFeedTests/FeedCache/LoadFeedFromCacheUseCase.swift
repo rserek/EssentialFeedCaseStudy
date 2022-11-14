@@ -91,7 +91,7 @@ class LoadFeedFromCacheUseCase: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
 
-    func test_load_doesNotDeleteLessThanSevendaysOldCache() {
+    func test_load_doesNotDeleteLessThanSevenDaysOldCache() {
         let feed = uniqueImageFeed()
         let fixedCurrentDate = Date()
         let lessThenSevenDaysOldTimestamp = fixedCurrentDate.addingDays(-7).addingSeconds(1)
@@ -102,7 +102,19 @@ class LoadFeedFromCacheUseCase: XCTestCase {
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
+    
+    func test_load_deletesSevenDaysOldCache() {
+        let feed = uniqueImageFeed()
+        let fixedCurrentDate = Date()
+        let sevenDaysOldTimestamp = fixedCurrentDate.addingDays(-7)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
 
+        sut.load { _ in }
+        store.completeRetrieval(with: feed.local, timestamp: sevenDaysOldTimestamp)
+
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
