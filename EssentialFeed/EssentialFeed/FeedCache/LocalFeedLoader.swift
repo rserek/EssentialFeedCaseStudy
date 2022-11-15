@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class LocalFeedLoader {
+public class LocalFeedLoader: FeedLoader {
     public typealias SaveResult = Error?
     public typealias LoadResult = LoadFeedResult
     
