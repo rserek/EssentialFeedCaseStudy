@@ -8,7 +8,7 @@
 import EssentialFeed
 import XCTest
 
-class LoadFeedFromCacheUseCase: XCTestCase {
+class LoadFeedFromCacheUseCaseTests: XCTestCase {
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
         
