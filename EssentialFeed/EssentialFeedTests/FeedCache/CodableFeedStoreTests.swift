@@ -70,9 +70,13 @@ class CodableFeedStore {
     }
 
     func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
-        guard FileManager.default.fileExists(atPath: storeURL.path) else { return }
+        guard FileManager.default.fileExists(atPath: storeURL.path) else {
+            completion(nil)
+            return
+        }
         
         try! FileManager.default.removeItem(at: storeURL)
+        completion(nil)
     }
 }
 
@@ -165,10 +169,13 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_deleteCachedFeed_doesNotFailAndHasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
+        let exp = XCTestExpectation(description: "Wait for delete completion")
         var receivedError: Error?
         sut.deleteCachedFeed { error in
             receivedError = error
+            exp.fulfill()
         }
+        wait(for: [exp], timeout: 1.0)
         
         XCTAssertNil(receivedError, "Expected empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
@@ -176,19 +183,16 @@ final class CodableFeedStoreTests: XCTestCase {
 
     func test_deleteCachedFeed_emptiesPreviouslyInsertedCache() {
         let sut = makeSUT()
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
-
-        let insertionError = insert(feed: feed, timestamp: timestamp, with: sut)
-        XCTAssertNil(insertionError, "Expected to insert cache successfully")
-        
-        expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
-        
+        insert(feed: uniqueImageFeed().local, timestamp: Date(), with: sut)
+             
+        let exp = XCTestExpectation(description: "Wait for delete completion")
         var deletionError: Error?
         sut.deleteCachedFeed { error in
             deletionError = error
+            exp.fulfill()
         }
-        
+        wait(for: [exp], timeout: 1.0)
+
         XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
     }
