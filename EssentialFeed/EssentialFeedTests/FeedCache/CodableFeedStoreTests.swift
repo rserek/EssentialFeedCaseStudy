@@ -119,21 +119,15 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     func test_deleteCacheFeed_deliversFailureOnDeletionError() {
         let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
-        insert(feed: uniqueImageFeed().local, timestamp: Date(), with: sut)
         
-        let deletionError = deleteCache(from: sut)
-
-        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        assertThatDeleteCacheFeedDeliversFailureOnDeletionError(on: sut)
     }
     
     func test_deleteCacheFeed_hasNoSideEffectsOnDeletionError() {
         let noDeletePermissionURL = noDeletePermissionURL()
         let sut = makeSUT(storeURL: noDeletePermissionURL)
-        insert(feed: uniqueImageFeed().local, timestamp: Date(), with: sut)
         
-        deleteCache(from: sut)
-
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteCacheFeedHasNoSideEffectsOnDeletionError(on: sut)
     }
     
     func test_storeSideEffects_runSerially() {
