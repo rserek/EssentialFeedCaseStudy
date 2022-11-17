@@ -207,7 +207,7 @@ final class CodableFeedStoreTests: XCTestCase {
     }
     
     @discardableResult
-    private func insert(feed: [LocalFeedImage], timestamp: Date, with sut: CodableFeedStore, file: StaticString = #filePath, line: UInt = #line) -> Error? {
+    private func insert(feed: [LocalFeedImage], timestamp: Date, with sut: CodableFeedStore) -> Error? {
         let exp = XCTestExpectation(description: "Wait for retrieve completion")
         var receivedError: Error?
         sut.insert(feed, timestamp: timestamp) { insertionError in
