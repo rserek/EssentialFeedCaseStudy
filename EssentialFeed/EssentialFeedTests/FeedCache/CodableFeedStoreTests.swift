@@ -196,7 +196,7 @@ final class CodableFeedStoreTests: XCTestCase {
         
         let deletionError = deleteCache(from: sut)
 
-        XCTAssertNotNil(deletionError)
+        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
     }
     
     // MARK: - Helpers
