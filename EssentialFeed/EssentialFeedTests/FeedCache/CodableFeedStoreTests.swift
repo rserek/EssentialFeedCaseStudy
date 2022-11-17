@@ -49,7 +49,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieve: .failure(anyNSError()))
+        assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnRetrievalError() {
@@ -58,7 +58,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieveTwice: .failure(anyNSError()))
+        assertThatRetrievehasNoSideEffectsOnRetrievalError(on: sut)
     }
 
     func test_insert_deliversNoErrorOnEmptyCache() {
@@ -204,4 +204,22 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     private func noDeletePermissionURL() -> URL {
       return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
+}
+
+func assertThatInsertDeliversFailureOnInsertionError(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+    let feed = uniqueImageFeed().local
+    let timestamp = Date()
+    
+    let insertionError = insert(feed: feed, timestamp: timestamp, with: sut)
+    
+    XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error", file: file, line: line)
+}
+
+func assertThatInsertHasNoSideEffectsOnInsertionError(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
+    let feed = uniqueImageFeed().local
+    let timestamp = Date()
+    
+    insert(feed: feed, timestamp: timestamp, with: sut)
+    
+    expect(sut, toRetrieve: .empty, file: file, line: line)
 }
