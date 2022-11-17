@@ -170,7 +170,7 @@ final class CodableFeedStoreTests: XCTestCase {
             receivedError = error
         }
         
-        XCTAssertNil(receivedError)
+        XCTAssertNil(receivedError, "Expected empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
     }
 
@@ -189,7 +189,7 @@ final class CodableFeedStoreTests: XCTestCase {
             deletionError = error
         }
         
-        XCTAssertNil(deletionError)
+        XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
     }
 
