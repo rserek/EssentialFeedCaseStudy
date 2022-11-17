@@ -92,14 +92,8 @@ final class CodableFeedStoreTests: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        let exp = XCTestExpectation(description: "Wait for retrieve completion")
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-        
+        insert(feed: feed, timestamp: timestamp, with: sut)
+
         expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
     }
 
@@ -108,13 +102,7 @@ final class CodableFeedStoreTests: XCTestCase {
         let feed = uniqueImageFeed().local
         let timestamp = Date()
         
-        let exp = XCTestExpectation(description: "Wait for retrieve completion")
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        insert(feed: feed, timestamp: timestamp, with: sut)
         
         expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp))
     }
@@ -126,6 +114,16 @@ final class CodableFeedStoreTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         
         return sut
+    }
+    
+    private func insert(feed: [LocalFeedImage], timestamp: Date, with sut: CodableFeedStore, file: StaticString = #filePath, line: UInt = #line) {
+        let exp = XCTestExpectation(description: "Wait for retrieve completion")
+        sut.insert(feed, timestamp: timestamp) { insertionError in
+            XCTAssertNil(insertionError, "Expected feed to be inserted successfully")
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
     
     private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file: StaticString = #filePath, line: UInt = #line) {
