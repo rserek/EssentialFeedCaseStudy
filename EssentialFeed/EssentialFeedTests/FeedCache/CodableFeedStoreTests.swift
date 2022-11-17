@@ -169,15 +169,9 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_deleteCachedFeed_doesNotFailAndHasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
         
-        let exp = XCTestExpectation(description: "Wait for delete completion")
-        var receivedError: Error?
-        sut.deleteCachedFeed { error in
-            receivedError = error
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        let deletionError = deleteCache(from: sut)
         
-        XCTAssertNil(receivedError, "Expected empty cache deletion to succeed")
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
     }
 
@@ -185,13 +179,7 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         insert(feed: uniqueImageFeed().local, timestamp: Date(), with: sut)
              
-        let exp = XCTestExpectation(description: "Wait for delete completion")
-        var deletionError: Error?
-        sut.deleteCachedFeed { error in
-            deletionError = error
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
+        let deletionError = deleteCache(from: sut)
 
         XCTAssertNil(deletionError, "Expected non-empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
@@ -218,6 +206,18 @@ final class CodableFeedStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         
         return receivedError
+    }
+    
+    private func deleteCache(from sut: CodableFeedStore) -> Error? {
+        let exp = XCTestExpectation(description: "Wait for delete completion")
+        var deletionError: Error?
+        sut.deleteCachedFeed { error in
+            deletionError = error
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+
+        return deletionError
     }
     
     private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult, file: StaticString = #filePath, line: UInt = #line) {
