@@ -82,23 +82,15 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     func test_insert_deliversFailureOnInsertionError() {
         let invalidStoreURL = URL(string: "invalid://store-url")!
         let sut = makeSUT(storeURL: invalidStoreURL)
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
         
-        let insertionError = insert(feed: feed, timestamp: timestamp, with: sut)
-        
-        XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
+        assertThatInsertDeliversFailureOnInsertionError(on: sut)
     }
     
     func test_insert_hasNoSideEffectsOnInsertionError() {
         let invalidStoreURL = URL(string: "invalid://store-url")!
         let sut = makeSUT(storeURL: invalidStoreURL)
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
         
-        insert(feed: feed, timestamp: timestamp, with: sut)
-        
-        expect(sut, toRetrieve: .empty)
+        assertThatInsertHasNoSideEffectsOnInsertionError(on: sut)
     }
         
     func test_deleteCachedFeed_deliversNoErrorOnEmptyCache() {
@@ -204,22 +196,4 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     private func noDeletePermissionURL() -> URL {
       return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
-}
-
-func assertThatInsertDeliversFailureOnInsertionError(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-    let feed = uniqueImageFeed().local
-    let timestamp = Date()
-    
-    let insertionError = insert(feed: feed, timestamp: timestamp, with: sut)
-    
-    XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error", file: file, line: line)
-}
-
-func assertThatInsertHasNoSideEffectsOnInsertionError(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
-    let feed = uniqueImageFeed().local
-    let timestamp = Date()
-    
-    insert(feed: feed, timestamp: timestamp, with: sut)
-    
-    expect(sut, toRetrieve: .empty, file: file, line: line)
 }
