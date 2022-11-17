@@ -132,7 +132,6 @@
 		E96A21E028EC3E4300C267CF = {
 			isa = PBXGroup;
 			children = (
-				E9090D6A29265EBB001E91AB /* FailableDeleteFeedStoreSpecs.swift */,
 				E96A21EC28EC3E4300C267CF /* EssentialFeed */,
 				E96A21F828EC3E4300C267CF /* EssentialFeedTests */,
 				E96A221F291B966300C267CF /* EssentialFeedAPIEndToEndTests */,
@@ -227,6 +226,7 @@
 				E9090D5629241789001E91AB /* ValidateFeedCacheUseCaseTests.swift */,
 				E9090D5E2924F06E001E91AB /* CodableFeedStoreTests.swift */,
 				E9090D622926573A001E91AB /* FeedStoreSpecs.swift */,
+				E9090D6A29265EBB001E91AB /* FailableDeleteFeedStoreSpecs.swift */,
 				E9090D64292657A8001E91AB /* XCTestCase+FeedStoreSpecs.swift */,
 				E9090D6629265CB4001E91AB /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */,
 				E9090D6829265E44001E91AB /* XCTestCase+FailableInsertFeedStoreSpecs.swift */,
