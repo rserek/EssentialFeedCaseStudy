@@ -31,12 +31,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
         
-        let saveExp = expectation(description: "Wait for save completion")
-        sutToPerformSave.save(feed) { error in
-            XCTAssertNil(error, "Expected to save feed successfully")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(sutToPerformSave, feed: feed)
         
         expect(sutToPerformLoad, toLoad: feed)
     }
@@ -48,19 +43,8 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         let firstFeed = uniqueImageFeed().models
         let latestFeed = uniqueImageFeed().models
         
-        let firstSaveExp = expectation(description: "Wait for first save completion")
-        sutToPerformFirstSave.save(firstFeed) { error in
-            XCTAssertNil(error, "Expected to save feed successfully")
-            firstSaveExp.fulfill()
-        }
-        wait(for: [firstSaveExp], timeout: 1.0)
-        
-        let lastSaveExp = expectation(description: "Wait for last save completion")
-        sutToPerformLastSave.save(latestFeed) { error in
-            XCTAssertNil(error, "Expected to save feed successfully")
-            lastSaveExp.fulfill()
-        }
-        wait(for: [lastSaveExp], timeout: 1.0)
+        save(sutToPerformFirstSave, feed: firstFeed)
+        save(sutToPerformLastSave, feed: latestFeed)
 
         expect(sutToPerformLoad, toLoad: latestFeed)
     }
@@ -77,6 +61,15 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
 
         return sut
+    }
+    
+    private func save(_ sut: LocalFeedLoader, feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+        let saveExp = expectation(description: "Wait for save completion")
+        sut.save(feed) { error in
+            XCTAssertNil(error, "Expected to save feed successfully", file: file, line: line)
+            saveExp.fulfill()
+        }
+        wait(for: [saveExp], timeout: 1.0)
     }
     
     private func expect(_ sut: LocalFeedLoader, toLoad feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
