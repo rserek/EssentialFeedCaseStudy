@@ -22,12 +22,20 @@ public final class RemoteFeedLoader: FeedLoader {
             
             switch result {
             case let .success(data, response):
-                let result = FeedItemsMapper.map(data, from: response)
-                completion(result)
+                completion(RemoteFeedLoader.map(data, from: response))
                 
             case .failure:
                 completion(.failure(RemoteFeedLoader.Error.connectivity))
             }
+        }
+    }
+    
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+        do {
+            let remoteFeedItems = try FeedItemsMapper.map(data, from: response)
+            return .success(remoteFeedItems.toModels())
+        } catch {
+            return .failure(error)
         }
     }
 }
@@ -38,5 +46,11 @@ public extension RemoteFeedLoader {
     enum Error: Swift.Error {
         case connectivity
         case invalidData
+    }
+}
+
+private extension Array where Element == RemoteFeedItem {
+    func toModels() -> [FeedImage] {
+        return map { .init(id: $0.id, description: $0.description, location: $0.location, url: $0.image)}
     }
 }
