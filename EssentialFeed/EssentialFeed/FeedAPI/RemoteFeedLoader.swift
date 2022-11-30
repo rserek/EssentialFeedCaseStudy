@@ -41,7 +41,7 @@ public final class RemoteFeedLoader: FeedLoader {
 }
 
 public extension RemoteFeedLoader {
-    typealias Result = LoadFeedResult
+    typealias Result = FeedLoader.Result
     
     enum Error: Swift.Error {
         case connectivity
