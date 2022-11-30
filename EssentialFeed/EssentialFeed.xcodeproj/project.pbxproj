@@ -512,6 +512,7 @@
 					};
 					E9C105742937552E002E5A4F = {
 						CreatedOnToolsVersion = 14.0.1;
+						LastSwiftMigration = 1400;
 					};
 				};
 			};
