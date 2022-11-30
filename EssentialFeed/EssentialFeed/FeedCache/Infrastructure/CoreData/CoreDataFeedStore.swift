@@ -21,6 +21,7 @@ public class CoreDataFeedStore: FeedStore {
         perform { context in
             completion(Result {
                 try ManagedCache.deleteFound(in: context)
+                try context.save()
             })
         }
     }
