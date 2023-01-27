@@ -55,6 +55,7 @@
 		E9C1058B2937CA16002E5A4F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A221628F01D6300C267CF /* XCTestCase+MemoryLeakTracking.swift */; };
 		E9C1058D2941471F002E5A4F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1058C2941471F002E5A4F /* FeedViewController.swift */; };
 		E9C1059C2983FD2A002E5A4F /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1059B2983FD2A002E5A4F /* FeedImageCell.swift */; };
+		E9C1059E29841AB2002E5A4F /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		E9C105832937C52E002E5A4F /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		E9C1058C2941471F002E5A4F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		E9C1059B2983FD2A002E5A4F /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
+		E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				E9C1058C2941471F002E5A4F /* FeedViewController.swift */,
+				E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */,
 				E9C1059B2983FD2A002E5A4F /* FeedImageCell.swift */,
 			);
 			path = EssentialFeediOS;
@@ -700,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C1059E29841AB2002E5A4F /* UIView+Shimmering.swift in Sources */,
 				E9C1058D2941471F002E5A4F /* FeedViewController.swift in Sources */,
 				E9C1059C2983FD2A002E5A4F /* FeedImageCell.swift in Sources */,
 			);
