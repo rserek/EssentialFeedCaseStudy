@@ -150,6 +150,28 @@ final class FeedViewControllerTests: XCTestCase {
         loader.completeImageLoading(with: imageData1, at: 0)
         XCTAssertEqual(view0?.renderedImage, imageData1, "Expected no image data state change for first view once second image loading completes successfully")
         XCTAssertEqual(view1?.renderedImage, .none, "Expected image for second view when second image loading completes successfully")
+    }
+    
+    func test_feedImageViewRetryButton_isVisibleOnImageLoadError() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
+        
+        let view0 = sut.simulateFeedImageViewVisible(at: 0)
+        let view1 = sut.simulateFeedImageViewVisible(at: 1)
+        
+        XCTAssertEqual(view0?.isShowingRetryButton, false, "Expected no retry action for first view when loading first image")
+        XCTAssertEqual(view0?.isShowingRetryButton, false, "Expected no retry action for first view when loading first image")
+
+        let imageData0 = UIImage.make(withColor: .red).pngData()!
+        loader.completeImageLoading(with: imageData0, at: 0)
+        XCTAssertEqual(view0?.isShowingRetryButton, false, "Expected no retry button for first view when first image loading completes successfully")
+        XCTAssertEqual(view1?.isShowingRetryButton, false, "Expected no retry button for second view when first image loading completes successfully")
+
+        loader.completeImageLoadingWithError(at: 1)
+        XCTAssertEqual(view0?.isShowingRetryButton, false, "Expected no retry button state change for first view once second image loading completes with error")
+        XCTAssertEqual(view1?.isShowingRetryButton, true, "Expected retry action for second view when second image loading completes with error")
 
     }
     
@@ -306,6 +328,10 @@ private extension FeedImageCell {
     
     var renderedImage: Data? {
         return feedImageView.image?.pngData()
+    }
+    
+    var isShowingRetryButton: Bool {
+        return !feedImageRetryButton.isHidden
     }
 }
 
