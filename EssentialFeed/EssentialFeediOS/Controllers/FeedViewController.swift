@@ -73,7 +73,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             let cellModel = tableModel[indexPath.row]
-            _ = imageLoader?.loadImageData(from: cellModel.url, completion: { _ in })
+            tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url, completion: { _ in })
         }
     }
     
