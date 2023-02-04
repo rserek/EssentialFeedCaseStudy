@@ -247,7 +247,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = FeedViewController(feedLoader: loader, imageLoader: loader)
+        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         
@@ -382,7 +382,7 @@ private extension FeedViewController {
     }
     
     func simulateFeedImageViewNotNearVisible(at row: Int) {
-        simulateFeedImageViewVisible(at: row)
+        simulateFeedImageViewNearVisible(at: row)
         
         let dataSource = tableView.prefetchDataSource
         let index = IndexPath(row: row, section: feedImagesSection)
