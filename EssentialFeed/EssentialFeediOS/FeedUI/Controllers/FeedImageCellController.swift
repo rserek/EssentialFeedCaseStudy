@@ -7,44 +7,40 @@
 
 import UIKit
 
-final class FeedImageCellController {
-    private let viewModel: FeedImageViewModel<UIImage>
-    
-    init(viewModel: FeedImageViewModel<UIImage>) {
-        self.viewModel = viewModel
+protocol FeedImageCellControllerDelegate {
+    func didRequestImage()
+    func didCancelImageRequest()
+}
+
+final class FeedImageCellController: FeedImageView {
+    private lazy var cell = FeedImageCell()
+    private let delegate: FeedImageCellControllerDelegate
+        
+    init(delegate: FeedImageCellControllerDelegate) {
+        self.delegate = delegate
     }
     
     func view() -> UITableViewCell {
-        let cell = binded(FeedImageCell())
-        viewModel.loadFeedImage()
+        delegate.didRequestImage()
         
         return cell
     }
     
     func preload() {
-        viewModel.preload()
+        delegate.didRequestImage()
     }
     
     func cancelLoad() {
-        viewModel.cancelLoad()
+        delegate.didCancelImageRequest()
     }
     
-    private func binded(_ cell: FeedImageCell) -> FeedImageCell {
+    func display(_ viewModel: FeedImagePresentableModel<UIImage>) {
         cell.locationContainer.isHidden = viewModel.isLocationHidden
         cell.locationLabel.text = viewModel.location
         cell.descriptionLabel.text = viewModel.description
-        cell.onRetry = viewModel.loadFeedImage
-
-        viewModel.onImageLoad = { [weak cell] image in
-            cell?.feedImageView.image = image
-        }
-        viewModel.onImageLoadingStateChange = { [weak cell] isLoading in
-            isLoading ? cell?.feedImageContainer.startShimmering() : cell?.feedImageContainer.stopShimmering()
-        }
-        viewModel.onAllowRetryingStateChange = { [weak cell] isRetryingAllowed in
-            cell?.feedImageRetryButton.isHidden = !isRetryingAllowed
-        }
-
-        return cell
+        cell.feedImageView.image = viewModel.image
+        cell.onRetry = delegate.didRequestImage
+        cell.feedImageRetryButton.isHidden = !viewModel.isRetryAvailable
+        cell.feedImageContainer.isShimmering = viewModel.isLoading
     }
 }
