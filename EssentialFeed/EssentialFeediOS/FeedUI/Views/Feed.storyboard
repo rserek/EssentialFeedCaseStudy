@@ -77,6 +77,9 @@
                                                             <state key="normal" title="⟳">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="bun-Cp-XuF" eventType="touchUpInside" id="9dP-0v-R63"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,6 +121,14 @@
                                         <constraint firstItem="ZEG-5a-u9L" firstAttribute="top" secondItem="7tG-lB-Z51" secondAttribute="topMargin" priority="999" constant="6" id="uw8-8y-aEH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="XWs-Hu-hhi" id="LUe-2U-cgi"/>
+                                    <outlet property="feedImageContainer" destination="EcC-Ai-Fmu" id="esM-OA-ckb"/>
+                                    <outlet property="feedImageRetryButton" destination="0Zr-vT-BMu" id="7xR-3P-xRc"/>
+                                    <outlet property="feedImageView" destination="n4d-Pk-uQK" id="CN0-oO-Zgp"/>
+                                    <outlet property="locationContainer" destination="lnb-Cc-Ax1" id="d4Q-6Y-u02"/>
+                                    <outlet property="locationLabel" destination="Iqn-r8-fMY" id="nGw-85-ool"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
