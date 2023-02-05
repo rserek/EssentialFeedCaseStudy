@@ -38,6 +38,7 @@
 		E93D265A2990317F0002417A /* FeedImagePresentableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D26592990317F0002417A /* FeedImagePresentableModel.swift */; };
 		E93D265C299043490002417A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93D265B299043490002417A /* Feed.storyboard */; };
 		E93D265E299043AA0002417A /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93D265D299043AA0002417A /* Feed.xcassets */; };
+		E93D2660299050C40002417A /* UITableView+dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D265F299050C40002417A /* UITableView+dequeueing.swift */; };
 		E96A21EF28EC3E4300C267CF /* EssentialFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = E96A21EE28EC3E4300C267CF /* EssentialFeed.docc */; };
 		E96A21F528EC3E4300C267CF /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96A21EA28EC3E4300C267CF /* EssentialFeed.framework */; };
 		E96A220528EC3E4E00C267CF /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A220428EC3E4E00C267CF /* FeedImage.swift */; };
@@ -148,6 +149,7 @@
 		E93D26592990317F0002417A /* FeedImagePresentableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresentableModel.swift; sourceTree = "<group>"; };
 		E93D265B299043490002417A /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		E93D265D299043AA0002417A /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
+		E93D265F299050C40002417A /* UITableView+dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueing.swift"; sourceTree = "<group>"; };
 		E96A21EA28EC3E4300C267CF /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96A21EE28EC3E4300C267CF /* EssentialFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeed.docc; sourceTree = "<group>"; };
 		E96A21F428EC3E4300C267CF /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -335,6 +337,7 @@
 		E96A21E028EC3E4300C267CF = {
 			isa = PBXGroup;
 			children = (
+				E93D265F299050C40002417A /* UITableView+dequeueing.swift */,
 				E96A21EC28EC3E4300C267CF /* EssentialFeed */,
 				E96A21F828EC3E4300C267CF /* EssentialFeedTests */,
 				E96A221F291B966300C267CF /* EssentialFeedAPIEndToEndTests */,
@@ -788,6 +791,7 @@
 				E9C1058D2941471F002E5A4F /* FeedViewController.swift in Sources */,
 				E93D265A2990317F0002417A /* FeedImagePresentableModel.swift in Sources */,
 				E9C1059C2983FD2A002E5A4F /* FeedImageCell.swift in Sources */,
+				E93D2660299050C40002417A /* UITableView+dequeueing.swift in Sources */,
 				E93D2647298E96480002417A /* FeedImageCellController.swift in Sources */,
 				E93D264B298E99A20002417A /* FeedUIComposer.swift in Sources */,
 			);
