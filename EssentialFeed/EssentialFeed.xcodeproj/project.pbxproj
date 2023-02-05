@@ -40,6 +40,7 @@
 		E93D265E299043AA0002417A /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93D265D299043AA0002417A /* Feed.xcassets */; };
 		E93D2660299050C40002417A /* UITableView+dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D265F299050C40002417A /* UITableView+dequeueing.swift */; };
 		E93D2662299051E80002417A /* UIImageView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D2661299051E70002417A /* UIImageView+Animation.swift */; };
+		E93D266429905E940002417A /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = E93D266329905E940002417A /* Feed.strings */; };
 		E96A21EF28EC3E4300C267CF /* EssentialFeed.docc in Sources */ = {isa = PBXBuildFile; fileRef = E96A21EE28EC3E4300C267CF /* EssentialFeed.docc */; };
 		E96A21F528EC3E4300C267CF /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96A21EA28EC3E4300C267CF /* EssentialFeed.framework */; };
 		E96A220528EC3E4E00C267CF /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A220428EC3E4E00C267CF /* FeedImage.swift */; };
@@ -152,6 +153,7 @@
 		E93D265D299043AA0002417A /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		E93D265F299050C40002417A /* UITableView+dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueing.swift"; sourceTree = "<group>"; };
 		E93D2661299051E70002417A /* UIImageView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animation.swift"; sourceTree = "<group>"; };
+		E93D266329905E940002417A /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
 		E96A21EA28EC3E4300C267CF /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96A21EE28EC3E4300C267CF /* EssentialFeed.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeed.docc; sourceTree = "<group>"; };
 		E96A21F428EC3E4300C267CF /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +326,7 @@
 				E93D2657299030900002417A /* FeedViewModel.swift */,
 				E93D265529902EE80002417A /* FeedImagePresenter.swift */,
 				E93D26592990317F0002417A /* FeedImagePresentableModel.swift */,
+				E93D266329905E940002417A /* Feed.strings */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 			files = (
 				E93D265C299043490002417A /* Feed.storyboard in Resources */,
 				E93D265E299043AA0002417A /* Feed.xcassets in Resources */,
+				E93D266429905E940002417A /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
