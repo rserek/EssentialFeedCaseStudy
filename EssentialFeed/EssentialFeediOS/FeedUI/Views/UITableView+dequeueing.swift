@@ -1,5 +1,5 @@
 //
-//  UITableView+dequeueing.swift
+//  UITableView+Dequeueing.swift
 //  EssentialFeediOS
 //
 //  Created by Radosław Serek on 05/02/2023.
