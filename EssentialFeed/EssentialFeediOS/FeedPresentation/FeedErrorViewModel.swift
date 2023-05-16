@@ -7,4 +7,12 @@
 
 struct FeedErrorViewModel {
     let message: String?
+    
+    static var noError: Self {
+        return .init(message: nil)
+    }
+    
+    static func error(message: String) -> Self {
+        return .init(message: message)
+    }
 }
