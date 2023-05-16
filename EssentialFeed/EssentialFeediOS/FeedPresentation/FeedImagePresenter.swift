@@ -14,6 +14,18 @@ protocol FeedImageView {
     func display(_ viewModel: FeedImagePresentableModel<Image>)
 }
 
+protocol FeedView {
+    func display(_ viewModel: FeedViewModel)
+}
+
+protocol FeedLoadingView {
+    func display(_ viewModel: FeedLoadingViewModel)
+}
+
+protocol FeedErrorView {
+    func display(_ viewModel: FeedErrorViewModel)
+}
+
 final class FeedImagePresenter<View: FeedImageView, Image> where View.Image == Image {
     private let view: View
     private let imageTransformator: (Data) -> Image?
