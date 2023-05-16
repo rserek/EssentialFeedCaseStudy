@@ -333,12 +333,10 @@
 		E93D2643298E8DE10002417A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E93D265F299050C40002417A /* UITableView+dequeueing.swift */,
-				E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */,
+				E9E890222A1385CF00FEB573 /* Helpers */,
 				E9C1059B2983FD2A002E5A4F /* FeedImageCell.swift */,
 				E93D265B299043490002417A /* Feed.storyboard */,
 				E93D265D299043AA0002417A /* Feed.xcassets */,
-				E93D2661299051E70002417A /* UIImageView+Animation.swift */,
 				E9E890202A1380C100FEB573 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -555,6 +553,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9E890222A1385CF00FEB573 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E93D265F299050C40002417A /* UITableView+dequeueing.swift */,
+				E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */,
+				E93D2661299051E70002417A /* UIImageView+Animation.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
