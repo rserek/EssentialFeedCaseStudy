@@ -85,6 +85,7 @@
 		E9E890212A1380C100FEB573 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E890202A1380C100FEB573 /* ErrorView.swift */; };
 		E9E890242A13868800FEB573 /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E890232A13868800FEB573 /* FeedLoadingViewModel.swift */; };
 		E9E890262A1386A000FEB573 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E890252A1386A000FEB573 /* FeedErrorViewModel.swift */; };
+		E9E890282A13870F00FEB573 /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E890272A13870F00FEB573 /* UIRefreshControl+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 		E9E890202A1380C100FEB573 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E9E890232A13868800FEB573 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
 		E9E890252A1386A000FEB573 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
+		E9E890272A13870F00FEB573 /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +569,7 @@
 				E93D265F299050C40002417A /* UITableView+dequeueing.swift */,
 				E9C1059D29841AB2002E5A4F /* UIView+Shimmering.swift */,
 				E93D2661299051E70002417A /* UIImageView+Animation.swift */,
+				E9E890272A13870F00FEB573 /* UIRefreshControl+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				E93D2654298FDD520002417A /* FeedPresenter.swift in Sources */,
 				E93D2662299051E80002417A /* UIImageView+Animation.swift in Sources */,
 				E93D2641298E8DA30002417A /* FeedImageDataLoader.swift in Sources */,
+				E9E890282A13870F00FEB573 /* UIRefreshControl+Helpers.swift in Sources */,
 				E93D268029907ABF0002417A /* MainQueueDisptachDecorator.swift in Sources */,
 				E93D268429907B840002417A /* FeedViewAdapter.swift in Sources */,
 				E9C1059E29841AB2002E5A4F /* UIView+Shimmering.swift in Sources */,
