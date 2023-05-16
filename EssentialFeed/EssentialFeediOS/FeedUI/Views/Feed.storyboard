@@ -15,10 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Zum-ic-CHV">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Zum-ic-CHV" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwC-Cs-czV">
+                                    <rect key="frame" x="0.0" y="8" width="390" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="OwC-Cs-czV" secondAttribute="bottom" constant="8" id="RxH-uH-9aa"/>
+                                <constraint firstItem="OwC-Cs-czV" firstAttribute="leading" secondItem="Zum-ic-CHV" secondAttribute="leading" id="hOF-Qu-edn"/>
+                                <constraint firstItem="OwC-Cs-czV" firstAttribute="top" secondItem="Zum-ic-CHV" secondAttribute="top" constant="8" id="r4n-7o-EY7"/>
+                                <constraint firstAttribute="trailing" secondItem="OwC-Cs-czV" secondAttribute="trailing" id="zCU-qb-vw2"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="OwC-Cs-czV" id="6VQ-g8-VOh"/>
+                                <outletCollection property="gestureRecognizers" destination="i2y-MD-kFJ" appends="YES" id="lnj-gA-0zo"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="NTY-b1-nBw">
                             <rect key="frame" x="0.0" y="674" width="390" height="16"/>
@@ -144,8 +163,16 @@
                             <action selector="refresh" destination="Af6-hi-I6F" eventType="valueChanged" id="URd-FB-DLr"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="errorView" destination="Zum-ic-CHV" id="9xV-0A-Bsv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6II-mu-uq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="i2y-MD-kFJ">
+                    <connections>
+                        <action selector="hideMessageAnimated" destination="Zum-ic-CHV" id="bAV-OK-5QJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="870.76923076923072" y="-144.31279620853081"/>
         </scene>
