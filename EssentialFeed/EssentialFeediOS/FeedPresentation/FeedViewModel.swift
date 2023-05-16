@@ -16,7 +16,7 @@ protocol FeedLoadingView {
 }
 
 struct FeedErrorViewModel {
-    let message: String
+    let message: String?
 }
 
 protocol FeedErrorView {
