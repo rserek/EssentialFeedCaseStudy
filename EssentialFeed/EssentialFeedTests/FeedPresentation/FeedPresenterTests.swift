@@ -75,7 +75,7 @@ final class FeedPresenterTests: XCTestCase {
                         .display(isLoading: true)])
     }
     
-    func test_didFinishLoading_displaysFeedAndStopsLoading() {
+    func test_didFinishLoadingWithFeed_displaysFeedAndStopsLoading() {
         let (sut, view) = makeSUT()
         let feed = uniqueImageFeed().models
         
