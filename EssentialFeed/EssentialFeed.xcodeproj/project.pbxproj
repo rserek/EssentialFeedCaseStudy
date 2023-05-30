@@ -87,6 +87,7 @@
 		E9E8903B2A260EAD00FEB573 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8903A2A260EAD00FEB573 /* FeedViewModel.swift */; };
 		E9E8903D2A260EB700FEB573 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8903C2A260EB700FEB573 /* FeedErrorViewModel.swift */; };
 		E9E8903E2A2610C900FEB573 /* FeedLocalisationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D267D299065C10002417A /* FeedLocalisationTests.swift */; };
+		E9E890402A2611D600FEB573 /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E8903F2A2611D600FEB573 /* FeedImagePresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +220,7 @@
 		E9E890382A260E9B00FEB573 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
 		E9E8903A2A260EAD00FEB573 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		E9E8903C2A260EB700FEB573 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
+		E9E8903F2A2611D600FEB573 /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +571,7 @@
 			children = (
 				E9E8902B2A26007E00FEB573 /* FeedPresenterTests.swift */,
 				E93D267D299065C10002417A /* FeedLocalisationTests.swift */,
+				E9E8903F2A2611D600FEB573 /* FeedImagePresenterTests.swift */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				E9090D6B29265EBB001E91AB /* FailableDeleteFeedStoreSpecs.swift in Sources */,
 				E96A220A28EC463E00C267CF /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				E9E8902C2A26007E00FEB573 /* FeedPresenterTests.swift in Sources */,
+				E9E890402A2611D600FEB573 /* FeedImagePresenterTests.swift in Sources */,
 				E96A221428EEC98D00C267CF /* URLSessionHTTPClientTests.swift in Sources */,
 				E9090D55292244DD001E91AB /* FeedStoreSpy.swift in Sources */,
 				E9090D6929265E44001E91AB /* XCTestCase+FailableInsertFeedStoreSpecs.swift in Sources */,
