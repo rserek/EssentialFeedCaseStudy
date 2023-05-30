@@ -12,7 +12,7 @@ public struct FeedImageViewModel<Image> {
     public let isRetryAvailable: Bool
     public let image: Image?
     
-    var isLocationHidden: Bool {
+    public var isLocationHidden: Bool {
         return location == nil
     }
 }

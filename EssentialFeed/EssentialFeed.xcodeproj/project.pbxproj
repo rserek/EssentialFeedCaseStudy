@@ -32,8 +32,6 @@
 		E93D2641298E8DA30002417A /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D2640298E8DA30002417A /* FeedImageDataLoader.swift */; };
 		E93D2647298E96480002417A /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D2646298E96480002417A /* FeedImageCellController.swift */; };
 		E93D264B298E99A20002417A /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D264A298E99A20002417A /* FeedUIComposer.swift */; };
-		E93D265629902EE80002417A /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D265529902EE80002417A /* FeedImagePresenter.swift */; };
-		E93D265A2990317F0002417A /* FeedImagePresentableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D26592990317F0002417A /* FeedImagePresentableModel.swift */; };
 		E93D265C299043490002417A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E93D265B299043490002417A /* Feed.storyboard */; };
 		E93D265E299043AA0002417A /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E93D265D299043AA0002417A /* Feed.xcassets */; };
 		E93D2660299050C40002417A /* UITableView+dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93D265F299050C40002417A /* UITableView+dequeueing.swift */; };
@@ -167,8 +165,6 @@
 		E93D2640298E8DA30002417A /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
 		E93D2646298E96480002417A /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		E93D264A298E99A20002417A /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
-		E93D265529902EE80002417A /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
-		E93D26592990317F0002417A /* FeedImagePresentableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresentableModel.swift; sourceTree = "<group>"; };
 		E93D265B299043490002417A /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		E93D265D299043AA0002417A /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		E93D265F299050C40002417A /* UITableView+dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueing.swift"; sourceTree = "<group>"; };
@@ -369,15 +365,6 @@
 			path = Composers;
 			sourceTree = "<group>";
 		};
-		E93D264C298EB01B0002417A /* FeedPresentation */ = {
-			isa = PBXGroup;
-			children = (
-				E93D265529902EE80002417A /* FeedImagePresenter.swift */,
-				E93D26592990317F0002417A /* FeedImagePresentableModel.swift */,
-			);
-			path = FeedPresentation;
-			sourceTree = "<group>";
-		};
 		E93D2652298FDCD40002417A /* FeedUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				E93D263F298E8D900002417A /* FeedImageDataLoader */,
-				E93D264C298EB01B0002417A /* FeedPresentation */,
 				E93D2652298FDCD40002417A /* FeedUI */,
 			);
 			path = EssentialFeediOS;
@@ -917,9 +903,7 @@
 				E9C1059E29841AB2002E5A4F /* UIView+Shimmering.swift in Sources */,
 				E93D268629907BB10002417A /* FeedLoaderPresentationAdapter.swift in Sources */,
 				E9E890212A1380C100FEB573 /* ErrorView.swift in Sources */,
-				E93D265629902EE80002417A /* FeedImagePresenter.swift in Sources */,
 				E9C1058D2941471F002E5A4F /* FeedViewController.swift in Sources */,
-				E93D265A2990317F0002417A /* FeedImagePresentableModel.swift in Sources */,
 				E9C1059C2983FD2A002E5A4F /* FeedImageCell.swift in Sources */,
 				E93D2660299050C40002417A /* UITableView+dequeueing.swift in Sources */,
 				E93D268829907BD40002417A /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
