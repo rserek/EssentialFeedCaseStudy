@@ -1,0 +1,10 @@
+/* 
+  Feed.strings
+  EssentialFeed
+
+  Created by Radosław Serek on 30/05/2023.
+  
+*/
+
+"feed_view_title" = "To Feed mouF";
+"feed_view_connection_error" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
