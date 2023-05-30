@@ -7,18 +7,6 @@
 
 import Foundation
 
-public struct FeedImageViewModel<Image> {
-    public let location: String?
-    public let description: String?
-    public let isLoading: Bool
-    public let isRetryAvailable: Bool
-    public let image: Image?
-    
-    var isLocationHidden: Bool {
-        return location == nil
-    }
-}
-
 public protocol FeedImageView {
     associatedtype Image
     
