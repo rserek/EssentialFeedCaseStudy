@@ -5,6 +5,7 @@
 //  Created by Radosław Serek on 06/02/2023.
 //
 
+import EssentialFeed
 import UIKit
 
 final class WeakRefVirtualProxy<T: AnyObject> {
@@ -22,7 +23,7 @@ extension WeakRefVirtualProxy: FeedLoadingView where T: FeedLoadingView {
 }
 
 extension WeakRefVirtualProxy: FeedImageView where T: FeedImageView, T.Image == UIImage {
-    func display(_ viewModel: FeedImagePresentableModel<UIImage>) {
+    func display(_ viewModel: FeedImageViewModel<UIImage>) {
         object?.display(viewModel)
     }
 }

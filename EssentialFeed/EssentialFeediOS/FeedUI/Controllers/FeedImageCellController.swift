@@ -5,6 +5,7 @@
 //  Created by Radosław Serek on 04/02/2023.
 //
 
+import EssentialFeed
 import UIKit
 
 protocol FeedImageCellControllerDelegate {
@@ -36,7 +37,7 @@ final class FeedImageCellController: FeedImageView {
         delegate.didCancelImageRequest()
     }
     
-    func display(_ viewModel: FeedImagePresentableModel<UIImage>) {
+    func display(_ viewModel: FeedImageViewModel<UIImage>) {
         cell?.locationContainer.isHidden = viewModel.isLocationHidden
         cell?.locationLabel.text = viewModel.location
         cell?.descriptionLabel.text = viewModel.description
